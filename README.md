@@ -3,7 +3,4 @@
 (*>ω<*) I’m currently learning automation using Selenium and coding 
 ♡＼(￣▽￣)／♡ I really admire programmer community and I want to contribute something and hope I can be pro in the future ଘʕ੭·͡ᴥ·ʔ﻿ ੭
 
-<!---
-kittykawaiii/kittykawaiii is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+![snake gif](https://github.com/kittykawaiii/kittykawaiii/blob/output/github-snake-dark.svg)
