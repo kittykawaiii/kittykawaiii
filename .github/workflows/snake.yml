@@ -1,13 +1,22 @@
 name: GitHub Snake Game
 
 on:
+  # Run on schedule (daily at 00:00 UTC)
+  schedule:
+    - cron: '0 0 * * *'
+  # Run on push to main (optional)
   push:
     branches:
       - main
+  # Allow manual trigger
   workflow_dispatch:
+  # Run when workflow file changes
+  pull_request:
+    paths:
+      - .github/workflows/snake.yml
 
 permissions:
-  contents: write  # Explicitly grant write permissions
+  contents: write
 
 jobs:
   generate-snake:
@@ -21,11 +30,14 @@ jobs:
       - name: Setup Directory
         run: mkdir -p dist
 
-      # Generate snake animation
+      # Generate snake animation with fresh data
       - name: Generate Snake
         uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
+          # Add these to ensure fresh data
+          gif_out_path: dist/github-contribution-grid-snake.gif
+          svg_out_path: dist/github-contribution-grid-snake.svg
           outputs: |
             dist/github-snake.svg
             dist/github-snake-dark.svg?palette=github-dark
@@ -38,3 +50,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: output
+          force_orphan: true
